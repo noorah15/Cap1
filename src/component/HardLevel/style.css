@@ -1,0 +1,27 @@
+.main {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("https://www.aljadeed.com/wp-content/uploads/2021/03/Image-Compressor-Online-%D9%85%D9%88%D9%82%D8%B9-%D9%84%D8%AE%D9%81%D8%B6-%D8%AD%D8%AC%D9%85-%D8%A7%D9%84%D8%B5%D9%88%D8%B1-%D8%A7%D9%88%D9%86-%D9%84%D8%A7%D9%8A%D9%86-%D8%A8%D8%AF%D9%88%D9%86-%D8%AA%D9%82%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  margin: 0;
+  padding: 0;
+}
+
+.cardContiner {
+  margin-right: 20px;
+  float: left;
+}
+
+.card {
+}
+
+.backImg {
+  height: 200px;
+  width: 100px;
+}
