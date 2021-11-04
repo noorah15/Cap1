@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 
 export default function HardLevel() {
-  const [ch, setCh] = useState([
+  const [orginalCard, setOrginalCard] = useState([
     {
       img: "https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg",
       count: 0,
@@ -10,7 +10,7 @@ export default function HardLevel() {
     { img: "http://webmeup.com/upload/blog/lead-image-105.png", count: 0 },
   ]);
 
-  const [real, setReal] = useState([
+  const [game, setGame] = useState([
     {
       id: 1,
       back: "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=",
@@ -46,30 +46,30 @@ export default function HardLevel() {
     let backCard =
       "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=";
 
-    if (real[id - 1].back !== frontCard)
-      if (real[id - 1].back === backCard) {
+    if (game[id - 1].back !== frontCard)
+      if (game[id - 1].back === backCard) {
         //count number of cards to check if the same or not
         //1-change count to each card
-        const newCh = ch.map((item) => {
-          if (real[id - 1].front === item.img) {
+        const newOrginalCard = orginalCard.map((item) => {
+          if (game[id - 1].front === item.img) {
             item.count++;
           }
           return item;
         });
-        setCh(newCh);
+        setOrginalCard(newOrginalCard);
 
         //2-use find to return count
-        let countCard = ch.find((item) => {
-          return real[id - 1].front === item.img;
+        let countCard = orginalCard.find((item) => {
+          return game[id - 1].front === item.img;
         });
 
-        const newReal = real.map((item) => {
+        const newGame = game.map((item) => {
           if (item.id === id) {
             item.back = item.front;
           }
           return item;
         });
-        setReal(newReal);
+        setGame(newGame);
 
         await delay(1000);
 
@@ -77,13 +77,13 @@ export default function HardLevel() {
         //begin
         if (countCard.count === 2) {
           //1- change image to frontCard
-          const newReal = real.map((item) => {
-            if (item.back === real[id - 1].front) {
+          const newGame = game.map((item) => {
+            if (item.back === game[id - 1].front) {
               item.back = frontCard;
             }
             return item;
           });
-          setReal(newReal);
+          setGame(newGame);
 
           //2- increase number of finished cards
 
@@ -96,41 +96,41 @@ export default function HardLevel() {
         flipNum[0]++;
 
         if (flipNum[0] === 2 && countCard.count !== 2) {
-          const newReal = real.map((item) => {
+          const newGame = game.map((item) => {
             item.back =
               "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=";
             return item;
           });
           flipNum[0] = 0;
-          setReal(newReal);
-          //set all count to 0
-          const newCh2 = ch.map((item) => {
+          setGame(newGame);
+          //set all count to 0 to
+          const newOrginalCard2 = orginalCard.map((item) => {
             item.count = 0;
             return item;
           });
 
-          setCh(newCh2);
+          setOrginalCard(newOrginalCard2);
         } else if (flipNum[0] === 2) flipNum[0] = 0;
         setFlipNum(flipNum);
         //finish check from filpNum
 
         //finish
       } else {
-        const newReal = real.map((item) => {
+        const newGame = game.map((item) => {
           if (item.id === id) {
             item.back =
               "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=";
           }
           return item;
         });
-        setReal(newReal);
+        setGame(newGame);
       }
   };
 
   return (
     <div className="main">
       <div className="cardContiner">
-        {real.map((item, i) => {
+        {game.map((item, i) => {
           return (
             <div className="card" key={i}>
               <img
