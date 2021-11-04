@@ -14,11 +14,18 @@
 }
 
 .cardContiner {
-  margin-right: 20px;
-  float: left;
+}
+
+.frontFlip {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+.backFlip {
 }
 
 .card {
+  margin-right: 20px;
+  float: left;
 }
 
 .backImg {
