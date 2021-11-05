@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
-export default function HardLevel() {
+export default function MediumLevel() {
   const [orginalCard, setOrginalCard] = useState([
     {
       id: 1,
@@ -39,33 +39,9 @@ export default function HardLevel() {
       count: 0,
       isFinish: false,
     },
-    {
-      id: 7,
-      img: require(`./../assests/front7.JPEG`).default,
-      count: 0,
-      isFinish: false,
-    },
-    {
-      id: 8,
-      img: require(`./../assests/front8.JPEG`).default,
-      count: 0,
-      isFinish: false,
-    },
-    {
-      id: 9,
-      img: require(`./../assests/front9.JPEG`).default,
-      count: 0,
-      isFinish: false,
-    },
   ]);
 
   const [game, setGame] = useState([
-    {
-      id: 14,
-      gameId: 7,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front7.JPEG`).default,
-    },
     {
       id: 2,
       gameId: 1,
@@ -115,12 +91,6 @@ export default function HardLevel() {
       front: require(`./../assests/front5.JPEG`).default,
     },
     {
-      id: 18,
-      gameId: 9,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front9.JPEG`).default,
-    },
-    {
       id: 11,
       gameId: 6,
       back: require(`./../assests/cardback.jpg`).default,
@@ -138,32 +108,6 @@ export default function HardLevel() {
       back: require(`./../assests/cardback.jpg`).default,
       front: require(`./../assests/front6.JPEG`).default,
     },
-    {
-      id: 13,
-      gameId: 7,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front7.JPEG`).default,
-    },
-
-    {
-      id: 15,
-      gameId: 8,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front8.JPEG`).default,
-    },
-    {
-      id: 16,
-      gameId: 8,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front8.JPEG`).default,
-    },
-    {
-      id: 17,
-      gameId: 9,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front9.JPEG`).default,
-    },
-
     {
       id: 1,
       gameId: 1,
@@ -215,33 +159,9 @@ export default function HardLevel() {
         count: 0,
         isFinish: false,
       },
-      {
-        id: 7,
-        img: require(`./../assests/front7.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 8,
-        img: require(`./../assests/front8.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 9,
-        img: require(`./../assests/front9.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
     ]);
 
     setGame([
-      {
-        id: 14,
-        gameId: 7,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front7.JPEG`).default,
-      },
       {
         id: 2,
         gameId: 1,
@@ -291,12 +211,6 @@ export default function HardLevel() {
         front: require(`./../assests/front5.JPEG`).default,
       },
       {
-        id: 18,
-        gameId: 9,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front9.JPEG`).default,
-      },
-      {
         id: 11,
         gameId: 6,
         back: require(`./../assests/cardback.jpg`).default,
@@ -314,32 +228,6 @@ export default function HardLevel() {
         back: require(`./../assests/cardback.jpg`).default,
         front: require(`./../assests/front6.JPEG`).default,
       },
-      {
-        id: 13,
-        gameId: 7,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front7.JPEG`).default,
-      },
-
-      {
-        id: 15,
-        gameId: 8,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front8.JPEG`).default,
-      },
-      {
-        id: 16,
-        gameId: 8,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front8.JPEG`).default,
-      },
-      {
-        id: 17,
-        gameId: 9,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front9.JPEG`).default,
-      },
-
       {
         id: 1,
         gameId: 1,
@@ -360,9 +248,7 @@ export default function HardLevel() {
 
   const changeCardPlace = () => {
     //1- genrate random numbers from 0 to 17
-    const numbers = [
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
-    ];
+    const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     numbers.sort(() => Math.random() - 0.5);
 
     //change cards place
@@ -503,7 +389,7 @@ export default function HardLevel() {
         <div className="timerDiv">
           <div className="counter">
             <h1 className="countNum">{finishedCardNum} </h1>
-            <h1 className="countHead"> correct </h1>{" "}
+            <h1 className="countHead"> correct </h1>
           </div>
 
           <h1 className="timer"> 00:30 </h1>
@@ -511,13 +397,13 @@ export default function HardLevel() {
         </div>
       </div>
       {/*start of cards return */}
-      <div className="cardContiner">
+      <div className="cardContinerMed">
         {game.map((item, i) => {
           return (
-            <div className="card" key={i}>
+            <div className="cardMed" key={i}>
               <img
                 src={item.back}
-                className="backImg"
+                className="backImgMed"
                 onClick={() => {
                   check(i + 1);
                 }}
