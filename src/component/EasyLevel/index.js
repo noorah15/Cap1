@@ -187,12 +187,12 @@ export default function EasyLevel() {
     //to change cards place every time it restarts
     //1- genrate random numbers from 0 to 5 for the easy level
     const numbers = [0, 1, 2, 3, 4, 5];
-    numbers.sort(() => Math.random() - 0.5);
+    numbers.sort(() => Math.random() - 0.5); //3 ,2,5,0,1,4
 
     //change cards place
     let newGame = [];
     for (let i = 0; i < numbers.length; i++) {
-      newGame.push(game[numbers[i]]);
+      newGame.push(game[numbers[i]]); //game []  //numbers[0] =3
     }
     //console.log(newGame);
     setGame(newGame);
@@ -227,6 +227,7 @@ export default function EasyLevel() {
           return game[id - 1].front === item.img;
         });
 
+        //3-Change face image
         const newGame = game.map((item, i) => {
           if (i === id - 1) {
             item.back = item.front;
@@ -237,7 +238,7 @@ export default function EasyLevel() {
 
         await delay(1000);
 
-        //3- cheack if is equals or not
+        //3- check if is equals or not
         //begin
         if (countCard.count === 2) {
           //1- change image to finishCard
@@ -278,7 +279,7 @@ export default function EasyLevel() {
           });
 
           setOrginalCard(newOrginalCard2);
-        } else if (opnedCards[0] === 2) opnedCards[0] = 0;
+        } // else if (opnedCards[0] === 2) opnedCards[0] = 0;
         setOpnedCards(opnedCards);
         //finish check from filpNum
 

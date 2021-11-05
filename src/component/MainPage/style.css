@@ -2,13 +2,13 @@
   text-align: center;
 }
 
-.gamename {
+.gamename3 {
   pointer-events: visibleFill;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .gamename {
-    width: 100px;
+  .gamename3 {
+    width: 120px;
     height: 100px;
     position: relative;
     animation: App-logo-spin 2s infinite;
@@ -38,21 +38,21 @@
     bottom: 40px;
   }
 }
-.gamename2 {
+.gamename4 {
   margin-top: 0px;
   display: flex;
   justify-content: end;
   pointer-events: fill;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .gamename2 {
+  .gamename4 {
     width: 250px;
     height: 100px;
     position: relative;
     animation: App-logo-spin 2s infinite;
   }
 }
-.gamename {
+.gamename3 {
   color: chocolate;
   text-shadow: 10px 15px 20px black;
   font-size: 48px;
@@ -60,7 +60,7 @@
   margin-bottom: 0px;
 }
 
-.gamename2 {
+.gamename4 {
   color: chocolate;
   font-size: 35px;
   font-family: "Ravie";
@@ -70,7 +70,7 @@
   padding-left: 20px;
 }
 
-.main {
+.mainInMainPage {
   background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.25),

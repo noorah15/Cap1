@@ -6,10 +6,10 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="main">
+    <div className="mainInMainPage">
       <div className="choiceFP">
-        <h1 className="gamename"> Halloween </h1>
-        <h2 className="gamename2"> Match-Up </h2>
+        <h1 className="gamename3"> Halloween </h1>
+        <h2 className="gamename4"> Match-Up </h2>
         <button
           className="inst"
           onClick={() => {
