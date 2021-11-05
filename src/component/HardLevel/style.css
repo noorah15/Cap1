@@ -14,19 +14,108 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 650px;
+  height: 700px;
   margin: 0;
   padding: 0;
 }
 
+.upperPage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 60px;
+}
+
+.btnsDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.timer,
+.countHead,
+.countNum {
+  padding-left: 50px;
+  color: white;
+}
+
+.restartBtn {
+  background-color: red;
+  padding: 5px 15px;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 13px;
+  height: 40px;
+  opacity: 85%;
+}
+
+.resIcon {
+  width: 20px;
+}
+
+.backBtn {
+  background-color: orange;
+  padding: 5px 15px;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 13px;
+  height: 40px;
+  opacity: 85%;
+}
+
+.backIcon {
+  width: 20px;
+}
+
+/*end of main & upper page style*/
+
+.cardContiner {
+  /*all cards div*/
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 120px;
+}
+
 .card {
-  border: 1px white solid;
-  border-radius: 5px;
-  margin-right: 20px;
-  float: left;
+  /*single card div*/
+  width: 12%;
+  height: auto;
+  margin: 20px;
+  text-align: center;
 }
 
 .backImg {
-  height: 200px;
-  width: 100px;
+  /*card img class*/
+  border: 2px solid white;
+  border-radius: 3px;
+  height: 160px;
+  width: auto;
+  transition: all 0.7s ease-in-out;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

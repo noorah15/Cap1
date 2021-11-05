@@ -177,9 +177,189 @@ export default function HardLevel() {
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  const changeCardPlace = () => {
-    //genrate random numbers from 0 to 17
+  const restartGame = () => {
+    setOrginalCard([
+      {
+        id: 1,
+        img: require(`./../assests/front1.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 2,
+        img: require(`./../assests/front2.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 3,
+        img: require(`./../assests/front3.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 4,
+        img: require(`./../assests/front4.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 5,
+        img: require(`./../assests/front5.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 6,
+        img: require(`./../assests/front6.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 7,
+        img: require(`./../assests/front7.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 8,
+        img: require(`./../assests/front8.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+      {
+        id: 9,
+        img: require(`./../assests/front9.JPEG`).default,
+        count: 0,
+        isFinish: false,
+      },
+    ]);
 
+    setGame([
+      {
+        id: 14,
+        gameId: 7,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front7.JPEG`).default,
+      },
+      {
+        id: 2,
+        gameId: 1,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front1.JPEG`).default,
+      },
+      {
+        id: 3,
+        gameId: 2,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front2.JPEG`).default,
+      },
+      {
+        id: 4,
+        gameId: 2,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front2.JPEG`).default,
+      },
+      {
+        id: 5,
+        gameId: 3,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front3.JPEG`).default,
+      },
+      {
+        id: 6,
+        gameId: 3,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front3.JPEG`).default,
+      },
+      {
+        id: 7,
+        gameId: 4,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front4.JPEG`).default,
+      },
+      {
+        id: 8,
+        gameId: 4,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front4.JPEG`).default,
+      },
+      {
+        id: 10,
+        gameId: 5,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front5.JPEG`).default,
+      },
+      {
+        id: 18,
+        gameId: 9,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front9.JPEG`).default,
+      },
+      {
+        id: 11,
+        gameId: 6,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front6.JPEG`).default,
+      },
+      {
+        id: 9,
+        gameId: 5,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front5.JPEG`).default,
+      },
+      {
+        id: 12,
+        gameId: 6,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front6.JPEG`).default,
+      },
+      {
+        id: 13,
+        gameId: 7,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front7.JPEG`).default,
+      },
+
+      {
+        id: 15,
+        gameId: 8,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front8.JPEG`).default,
+      },
+      {
+        id: 16,
+        gameId: 8,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front8.JPEG`).default,
+      },
+      {
+        id: 17,
+        gameId: 9,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front9.JPEG`).default,
+      },
+
+      {
+        id: 1,
+        gameId: 1,
+        back: require(`./../assests/cardback.jpg`).default,
+        front: require(`./../assests/front1.JPEG`).default,
+      },
+    ]);
+
+    const newGame = game.map((item, i) => {
+      item.back = require(`./../assests/cardback.jpg`).default;
+      return item;
+    });
+    setGame(newGame);
+    setFinishedCardNum(0);
+
+    changeCardPlace();
+  };
+
+  const changeCardPlace = () => {
+    //1- genrate random numbers from 0 to 17
     const numbers = [
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
     ];
@@ -187,7 +367,6 @@ export default function HardLevel() {
 
     //change cards place
     let newGame = [];
-
     for (let i = 0; i < numbers.length; i++) {
       newGame.push(game[numbers[i]]);
     }
@@ -236,14 +415,6 @@ export default function HardLevel() {
         //begin
         if (countCard.count === 2) {
           //1- change image to finishCard
-          // const newGame = game.map((item) => {
-          //   if (item.back === game[id - 1].front) {
-          //     //item.back = finishCard;
-
-          //   }
-          //   return item;
-          // });
-          // setGame(newGame);
 
           const newGame = orginalCard.map((item, i) => {
             if (item.id === game[id - 1].gameId) {
@@ -307,6 +478,37 @@ export default function HardLevel() {
   /* main return, style here  */
   return (
     <div className="main">
+      <div className="upperPage">
+        <div className="btnsDiv">
+          <button className="backBtn">
+            <img
+              className="backIcon"
+              src="https://img.icons8.com/material-outlined/24/ffffff/circled-left--v1.png"
+            />
+          </button>
+          <button
+            className="restartBtn"
+            onClick={() => {
+              restartGame();
+            }}
+          >
+            <img
+              className="resIcon"
+              src="https://img.icons8.com/material-outlined/24/ffffff/restart--v1.png"
+            />
+          </button>
+        </div>
+        <div className="timerDiv">
+          <div className="counter">
+            <h1 className="countNum">{finishedCardNum} </h1>
+            <h1 className="countHead"> correct </h1>{" "}
+          </div>
+
+          <h1 className="timer"> 00:30 </h1>
+          {/*will make this into dynamic soon */}
+        </div>
+      </div>
+      {/*start of cards return */}
       <div className="cardContiner">
         {game.map((item, i) => {
           return (
@@ -323,8 +525,6 @@ export default function HardLevel() {
           );
         })}
       </div>
-
-      <h1>{finishedCardNum} </h1>
     </div>
   );
 }
