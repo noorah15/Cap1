@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 
 export default function HardLevel() {
@@ -61,10 +61,10 @@ export default function HardLevel() {
 
   const [game, setGame] = useState([
     {
-      id: 1,
-      gameId: 1,
+      id: 14,
+      gameId: 7,
       back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front1.JPEG`).default,
+      front: require(`./../assests/front7.JPEG`).default,
     },
     {
       id: 2,
@@ -109,22 +109,28 @@ export default function HardLevel() {
       front: require(`./../assests/front4.JPEG`).default,
     },
     {
-      id: 9,
-      gameId: 5,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front5.JPEG`).default,
-    },
-    {
       id: 10,
       gameId: 5,
       back: require(`./../assests/cardback.jpg`).default,
       front: require(`./../assests/front5.JPEG`).default,
     },
     {
+      id: 18,
+      gameId: 9,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front9.JPEG`).default,
+    },
+    {
       id: 11,
       gameId: 6,
       back: require(`./../assests/cardback.jpg`).default,
       front: require(`./../assests/front6.JPEG`).default,
+    },
+    {
+      id: 9,
+      gameId: 5,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front5.JPEG`).default,
     },
     {
       id: 12,
@@ -138,12 +144,7 @@ export default function HardLevel() {
       back: require(`./../assests/cardback.jpg`).default,
       front: require(`./../assests/front7.JPEG`).default,
     },
-    {
-      id: 14,
-      gameId: 7,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front7.JPEG`).default,
-    },
+
     {
       id: 15,
       gameId: 8,
@@ -162,11 +163,12 @@ export default function HardLevel() {
       back: require(`./../assests/cardback.jpg`).default,
       front: require(`./../assests/front9.JPEG`).default,
     },
+
     {
-      id: 18,
-      gameId: 9,
+      id: 1,
+      gameId: 1,
       back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front9.JPEG`).default,
+      front: require(`./../assests/front1.JPEG`).default,
     },
   ]);
 
@@ -175,12 +177,34 @@ export default function HardLevel() {
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
+  const changeCardPlace = () => {
+    //genrate random numbers from 0 to 17
+
+    const numbers = [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+    ];
+    numbers.sort(() => Math.random() - 0.5);
+
+    //change cards place
+    let newGame = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+      newGame.push(game[numbers[i]]);
+    }
+    console.log(newGame);
+    setGame(newGame);
+  };
+
+  useEffect(() => {
+    changeCardPlace();
+  }, []);
+
   const check = async (id) => {
     let backCard = require(`./../assests/cardback.jpg`).default;
     let getIndexInOrginalCard = game[id - 1].gameId - 1;
     let check = orginalCard[getIndexInOrginalCard].isFinish;
 
-    // console.log(check + "  " + getIndexInOrginalCard);
+    // console.log(check + "  " + getIndexInOrginalCard + " " + id);
     if (check === false)
       if (game[id - 1].back === backCard) {
         //count number of cards to check if the same or not
@@ -198,8 +222,8 @@ export default function HardLevel() {
           return game[id - 1].front === item.img;
         });
 
-        const newGame = game.map((item) => {
-          if (item.id === id) {
+        const newGame = game.map((item, i) => {
+          if (i === id - 1) {
             item.back = item.front;
           }
           return item;
@@ -221,7 +245,7 @@ export default function HardLevel() {
           // });
           // setGame(newGame);
 
-          const newGame = orginalCard.map((item) => {
+          const newGame = orginalCard.map((item, i) => {
             if (item.id === game[id - 1].gameId) {
               item.isFinish = true;
               //item.back = finishCard;
@@ -271,8 +295,8 @@ export default function HardLevel() {
         // });
         // setGame(newOrginalCard);
 
-        const newGame = game.map((item) => {
-          if (item.id === id) {
+        const newGame = game.map((item, i) => {
+          if (i === id - 1) {
             item.back = backCard;
           }
           return item;
