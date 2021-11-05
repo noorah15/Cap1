@@ -4,34 +4,169 @@ import "./style.css";
 export default function HardLevel() {
   const [orginalCard, setOrginalCard] = useState([
     {
-      img: "https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg",
+      id: 1,
+      img: require(`./../assests/front1.JPEG`).default,
       count: 0,
+      isFinish: false,
     },
-    { img: "http://webmeup.com/upload/blog/lead-image-105.png", count: 0 },
+    {
+      id: 2,
+      img: require(`./../assests/front2.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 3,
+      img: require(`./../assests/front3.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 4,
+      img: require(`./../assests/front4.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 5,
+      img: require(`./../assests/front5.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 6,
+      img: require(`./../assests/front6.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 7,
+      img: require(`./../assests/front7.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 8,
+      img: require(`./../assests/front8.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
+    {
+      id: 9,
+      img: require(`./../assests/front9.JPEG`).default,
+      count: 0,
+      isFinish: false,
+    },
   ]);
 
   const [game, setGame] = useState([
     {
       id: 1,
-      back: "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=",
-      front:
-        "https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg",
+      gameId: 1,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front1.JPEG`).default,
     },
     {
       id: 2,
-      back: "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=",
-      front: "http://webmeup.com/upload/blog/lead-image-105.png",
+      gameId: 1,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front1.JPEG`).default,
     },
     {
       id: 3,
-      back: "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=",
-      front:
-        "https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg",
+      gameId: 2,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front2.JPEG`).default,
     },
     {
       id: 4,
-      back: "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=",
-      front: "http://webmeup.com/upload/blog/lead-image-105.png",
+      gameId: 2,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front2.JPEG`).default,
+    },
+    {
+      id: 5,
+      gameId: 3,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front3.JPEG`).default,
+    },
+    {
+      id: 6,
+      gameId: 3,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front3.JPEG`).default,
+    },
+    {
+      id: 7,
+      gameId: 4,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front4.JPEG`).default,
+    },
+    {
+      id: 8,
+      gameId: 4,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front4.JPEG`).default,
+    },
+    {
+      id: 9,
+      gameId: 5,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front5.JPEG`).default,
+    },
+    {
+      id: 10,
+      gameId: 5,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front5.JPEG`).default,
+    },
+    {
+      id: 11,
+      gameId: 6,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front6.JPEG`).default,
+    },
+    {
+      id: 12,
+      gameId: 6,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front6.JPEG`).default,
+    },
+    {
+      id: 13,
+      gameId: 7,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front7.JPEG`).default,
+    },
+    {
+      id: 14,
+      gameId: 7,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front7.JPEG`).default,
+    },
+    {
+      id: 15,
+      gameId: 8,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front8.JPEG`).default,
+    },
+    {
+      id: 16,
+      gameId: 8,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front8.JPEG`).default,
+    },
+    {
+      id: 17,
+      gameId: 9,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front9.JPEG`).default,
+    },
+    {
+      id: 18,
+      gameId: 9,
+      back: require(`./../assests/cardback.jpg`).default,
+      front: require(`./../assests/front9.JPEG`).default,
     },
   ]);
 
@@ -41,12 +176,12 @@ export default function HardLevel() {
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   const check = async (id) => {
-    let frontCard =
-      "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80";
-    let backCard =
-      "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=";
+    let backCard = require(`./../assests/cardback.jpg`).default;
+    let getIndexInOrginalCard = game[id - 1].gameId - 1;
+    let check = orginalCard[getIndexInOrginalCard].isFinish;
 
-    if (game[id - 1].back !== frontCard)
+    // console.log(check + "  " + getIndexInOrginalCard);
+    if (check === false)
       if (game[id - 1].back === backCard) {
         //count number of cards to check if the same or not
         //1-change count to each card
@@ -76,17 +211,26 @@ export default function HardLevel() {
         //3- cheack if is equals or not
         //begin
         if (countCard.count === 2) {
-          //1- change image to frontCard
-          const newGame = game.map((item) => {
-            if (item.back === game[id - 1].front) {
-              item.back = frontCard;
+          //1- change image to finishCard
+          // const newGame = game.map((item) => {
+          //   if (item.back === game[id - 1].front) {
+          //     //item.back = finishCard;
+
+          //   }
+          //   return item;
+          // });
+          // setGame(newGame);
+
+          const newGame = orginalCard.map((item) => {
+            if (item.id === game[id - 1].gameId) {
+              item.isFinish = true;
+              //item.back = finishCard;
             }
             return item;
           });
-          setGame(newGame);
+          setOrginalCard(newGame);
 
           //2- increase number of finished cards
-
           setFinishedCardNum(finishedCardNum + 1);
         }
         //end
@@ -97,8 +241,10 @@ export default function HardLevel() {
 
         if (flipNum[0] === 2 && countCard.count !== 2) {
           const newGame = game.map((item) => {
-            item.back =
-              "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=";
+            //change
+            let getIndexInOrginalCard = item.gameId - 1;
+            let check = orginalCard[getIndexInOrginalCard].isFinish;
+            if (check === false) item.back = backCard;
             return item;
           });
           flipNum[0] = 0;
@@ -116,17 +262,25 @@ export default function HardLevel() {
 
         //finish
       } else {
+        orginalCard[getIndexInOrginalCard].count = 0;
+        // const newOrginalCard = orginalCard.map((item) => {
+        //   if (item.id === getIndexInOrginalCard) {
+        //     item.count = 0;
+        //   }
+        //   return item;
+        // });
+        // setGame(newOrginalCard);
+
         const newGame = game.map((item) => {
           if (item.id === id) {
-            item.back =
-              "https://media.istockphoto.com/photos/colored-powder-explosion-on-black-background-picture-id1057506940?k=20&m=1057506940&s=612x612&w=0&h=3j5EA6YFVg3q-laNqTGtLxfCKVR3_o6gcVZZseNaWGk=";
+            item.back = backCard;
           }
           return item;
         });
         setGame(newGame);
       }
   };
-
+  /* main return, style here  */
   return (
     <div className="main">
       <div className="cardContiner">
