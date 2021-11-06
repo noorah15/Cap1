@@ -69,12 +69,9 @@ export default function EasyLevel() {
   const [finishedCardNum, setFinishedCardNum] = useState(0);
   const [opnedCards, setOpnedCards] = useState([0]); //only works with array
   const [timer, setTimer] = useState(0);
-  const [timerStop, setTimerStop] = useState(0);
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms)); //to delay cards flip if wrong match
   const navigate = useNavigate();
-
-  let timerFun;
 
   const changeCardPlace = () => {
     //to change cards place every time it restarts
@@ -91,49 +88,26 @@ export default function EasyLevel() {
     setGame(newGame);
   };
 
-  // useEffect(() => {
-  //   let i = 0;
-  //   timerFun = setInterval(() => {
-  //     setTimer(i);
-  //     i++;
-  //     if (i === 30 && timerStop !== 3) {
-  //       clearInterval(timerFun);
-  //       navigate("/lose");
-  //     } else if (i === 30) {
-  //       clearInterval(timerFun);
-  //       //   navigate("/win");
-  //     }
-  //     console.log(timerStop);
-  //   }, 1000);
-  // }, [timerStop]);
-
-  const g = () => {
-    console.log(finishedCardNum);
-  };
-
   useEffect(() => {
-    let i = 0;
-    timerFun = setInterval(() => {
-      setTimer(i);
-      i++;
-      if (i === 30) {
-        clearInterval(timerFun);
-        //g();
-        navigate("/lose");
-      }
-
-      //console.log(finishedCardNum);
-    }, 1000);
     changeCardPlace();
   }, []); //to do the change card place with every refresh of page
 
   useEffect(() => {
+    const id = setInterval(() => {
+      setTimer(timer + 1);
+      if (timer === 20 && finishedCardNum !== 3) {
+        navigate("/lose");
+      }
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }); //to do the change card place with every refresh of page
+
+  useEffect(() => {
     if (finishedCardNum === 3) {
-      setTimerStop(1);
-      clearInterval(timerFun);
       navigate("/win");
     }
-    // console.log(finishedCardNum);
   }, [finishedCardNum]);
 
   const check = async (id) => {
@@ -170,7 +144,7 @@ export default function EasyLevel() {
         });
         setGame(newGame);
 
-        await delay(1000);
+        await delay(700);
 
         //3- check if is equals or not
         //begin
@@ -238,7 +212,6 @@ export default function EasyLevel() {
           <button
             className="backBtn"
             onClick={() => {
-              clearInterval(timerFun);
               navigate("/start");
             }}
           >

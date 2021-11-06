@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { AiFillLeftCircle } from "react-icons/ai";
 
 export default function Start() {
   const navigate = useNavigate();
@@ -38,6 +39,12 @@ export default function Start() {
             Hard level
           </button>
         </div>
+        <AiFillLeftCircle
+          className="backIconStart"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
       </div>
     </div>
   );

@@ -40,10 +40,12 @@
   padding: 0;
 }
 
-.backIcon {
-  size: lg;
+.backIconA {
+  width: 50px;
+  height: 50px;
 }
 
-.backIcon:hover {
+.backIconA:hover {
+  color: rgb(69, 65, 105);
   cursor: pointer;
 }

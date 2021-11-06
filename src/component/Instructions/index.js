@@ -18,7 +18,7 @@ export default function Instructions() {
           3- Match all of the cards on the board to complete the level.
         </h3>
         <AiFillLeftCircle
-          className="backIcon"
+          className="backIconA"
           onClick={() => {
             navigate("/");
           }}

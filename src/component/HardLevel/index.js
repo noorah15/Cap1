@@ -177,20 +177,22 @@ export default function HardLevel() {
 
   const [finishedCardNum, setFinishedCardNum] = useState(0);
   const [opnedCards, setOpnedCards] = useState([0]); //only works with array
+  const [timer, setTimer] = useState(0);
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   const changeCardPlace = () => {
-    //1- genrate random numbers from 0 to 17
+    //to change cards place every time it restarts
+    //1- genrate random numbers from 0 to 5 for the easy level
     const numbers = [
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
     ];
-    numbers.sort(() => Math.random() - 0.5);
+    numbers.sort(() => Math.random() - 0.5); //3 ,2,5,0,1,4
 
     //change cards place
     let newGame = [];
     for (let i = 0; i < numbers.length; i++) {
-      newGame.push(game[numbers[i]]); //numbers[0] = 4  numbers[1] = 17
+      newGame.push(game[numbers[i]]); //game []  //numbers[0] =3
     }
     //console.log(newGame);
     setGame(newGame);
@@ -198,9 +200,28 @@ export default function HardLevel() {
 
   useEffect(() => {
     changeCardPlace();
-  }, []);
+  }, []); //to do the change card place with every refresh of page
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTimer(timer + 1);
+      if (timer === 40 && finishedCardNum !== 9) {
+        navigate("/lose");
+      }
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }); //to do the change card place with every refresh of page
+
+  useEffect(() => {
+    if (finishedCardNum === 9) {
+      navigate("/win");
+    }
+  }, [finishedCardNum]);
 
   const check = async (id) => {
+    //to check match
     // id = i+1 ind
     let backCard = require(`./../newFronts/backCard.jpg`).default;
     let getIndexInOrginalCard = game[id - 1].gameId - 1;
@@ -210,7 +231,7 @@ export default function HardLevel() {
     if (check === false)
       if (game[id - 1].back === backCard) {
         //count number of cards to check if the same or not
-        //1-change count to each card
+        //1-change count of each card, when its matched count = 2 otherwise its not a match
         const newOrginalCard = orginalCard.map((item) => {
           if (game[id - 1].front === item.img) {
             item.count++;
@@ -224,6 +245,7 @@ export default function HardLevel() {
           return game[id - 1].front === item.img;
         });
 
+        //3-Change face image
         const newGame = game.map((item, i) => {
           if (i === id - 1) {
             item.back = item.front;
@@ -232,9 +254,9 @@ export default function HardLevel() {
         });
         setGame(newGame);
 
-        await delay(1000);
+        await delay(700);
 
-        //3- cheack if is equals or not
+        //3- check if is equals or not
         //begin
         if (countCard.count === 2) {
           //1- change image to finishCard
@@ -258,7 +280,7 @@ export default function HardLevel() {
         opnedCards[0]++;
 
         if (opnedCards[0] === 2) {
-          //  && countCard.count !== 2)
+          //  && countCard.count !== 2) <this is a deleted code
           const newGame = game.map((item) => {
             //change
             let getIndexInOrginalCard = item.gameId - 1;
@@ -275,7 +297,7 @@ export default function HardLevel() {
           });
 
           setOrginalCard(newOrginalCard2);
-        } else if (opnedCards[0] === 2) opnedCards[0] = 0;
+        } // else if (opnedCards[0] === 2) opnedCards[0] = 0;
         setOpnedCards(opnedCards);
         //finish check from filpNum
 
@@ -311,7 +333,7 @@ export default function HardLevel() {
             <h1 className="countHead"> correct </h1>{" "}
           </div>
 
-          <h1 className="timer"> 00:30 </h1>
+          <h1 className="timer"> 00:{timer > 9 ? "" + timer : "0" + timer} </h1>
           {/*will make this into dynamic soon */}
         </div>
       </div>
