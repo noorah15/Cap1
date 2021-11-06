@@ -1,25 +1,23 @@
 .instrac {
-  margin-top: 0vmax;
-  margin-left: 18rem;
-  margin-bottom: 2rem;
-  width: 48%;
-  height: 700px;
+  width: 50%;
+  margin-left: 290px;
+  margin-top: 50px;
+  padding-bottom: 10px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 35px;
-
+  background-color: rgba(250, 246, 250, 0.3);
   font-family: "Aldhabi";
-  color: rgba(204, 130, 32, 0.856);
-
+  color: rgb(119, 115, 149);
   border-radius: 2rem;
-  box-shadow: 2px 2px 30px 8px rgb(247, 144, 40);
 }
 .instractions {
   font-family: "Aldhabi";
   align-content: center;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 200;
 }
 
@@ -29,16 +27,23 @@
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif");
+    url("./../newFronts/bgImg4.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   height: 700px;
   margin: 0;
   padding: 0;
 }
 
-.backBtn:hover {
+.backIcon {
+  size: lg;
+}
+
+.backIcon:hover {
   cursor: pointer;
 }

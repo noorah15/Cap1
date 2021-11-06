@@ -1,41 +1,43 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 export default function MediumLevel() {
+  const navigate = useNavigate();
   const [orginalCard, setOrginalCard] = useState([
     {
       id: 1,
-      img: require(`./../assests/front1.JPEG`).default,
+      img: require(`./../newFronts/image0.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 2,
-      img: require(`./../assests/front2.JPEG`).default,
+      img: require(`./../newFronts/image1.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 3,
-      img: require(`./../assests/front3.JPEG`).default,
+      img: require(`./../newFronts/image2.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 4,
-      img: require(`./../assests/front4.JPEG`).default,
+      img: require(`./../newFronts/image3.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 5,
-      img: require(`./../assests/front5.JPEG`).default,
+      img: require(`./../newFronts/image4.jpg`).default,
       count: 0,
       isFinish: false,
     },
     {
       id: 6,
-      img: require(`./../assests/front6.JPEG`).default,
+      img: require(`./../newFronts/image5.jpg`).default,
       count: 0,
       isFinish: false,
     },
@@ -45,74 +47,74 @@ export default function MediumLevel() {
     {
       id: 2,
       gameId: 1,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front1.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image0.jpg`).default,
     },
     {
       id: 3,
       gameId: 2,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front2.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image1.jpg`).default,
     },
     {
       id: 4,
       gameId: 2,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front2.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image1.jpg`).default,
     },
     {
       id: 5,
       gameId: 3,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front3.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image2.jpg`).default,
     },
     {
       id: 6,
       gameId: 3,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front3.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image2.jpg`).default,
     },
     {
       id: 7,
       gameId: 4,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front4.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image3.jpg`).default,
     },
     {
       id: 8,
       gameId: 4,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front4.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image3.jpg`).default,
     },
     {
       id: 10,
       gameId: 5,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front5.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image4.jpg`).default,
     },
     {
       id: 11,
       gameId: 6,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front6.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image5.jpg`).default,
     },
     {
       id: 9,
       gameId: 5,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front5.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image4.jpg`).default,
     },
     {
       id: 12,
       gameId: 6,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front6.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image5.jpg`).default,
     },
     {
       id: 1,
       gameId: 1,
-      back: require(`./../assests/cardback.jpg`).default,
-      front: require(`./../assests/front1.JPEG`).default,
+      back: require(`./../newFronts/backCard.jpg`).default,
+      front: require(`./../newFronts/image0.jpg`).default,
     },
   ]);
 
@@ -120,131 +122,6 @@ export default function MediumLevel() {
   const [opnedCards, setOpnedCards] = useState([0]); //only works with array
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
-  const restartGame = () => {
-    setOrginalCard([
-      {
-        id: 1,
-        img: require(`./../assests/front1.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 2,
-        img: require(`./../assests/front2.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 3,
-        img: require(`./../assests/front3.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 4,
-        img: require(`./../assests/front4.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 5,
-        img: require(`./../assests/front5.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-      {
-        id: 6,
-        img: require(`./../assests/front6.JPEG`).default,
-        count: 0,
-        isFinish: false,
-      },
-    ]);
-
-    setGame([
-      {
-        id: 2,
-        gameId: 1,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front1.JPEG`).default,
-      },
-      {
-        id: 3,
-        gameId: 2,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front2.JPEG`).default,
-      },
-      {
-        id: 4,
-        gameId: 2,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front2.JPEG`).default,
-      },
-      {
-        id: 5,
-        gameId: 3,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front3.JPEG`).default,
-      },
-      {
-        id: 6,
-        gameId: 3,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front3.JPEG`).default,
-      },
-      {
-        id: 7,
-        gameId: 4,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front4.JPEG`).default,
-      },
-      {
-        id: 8,
-        gameId: 4,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front4.JPEG`).default,
-      },
-      {
-        id: 10,
-        gameId: 5,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front5.JPEG`).default,
-      },
-      {
-        id: 11,
-        gameId: 6,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front6.JPEG`).default,
-      },
-      {
-        id: 9,
-        gameId: 5,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front5.JPEG`).default,
-      },
-      {
-        id: 12,
-        gameId: 6,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front6.JPEG`).default,
-      },
-      {
-        id: 1,
-        gameId: 1,
-        back: require(`./../assests/cardback.jpg`).default,
-        front: require(`./../assests/front1.JPEG`).default,
-      },
-    ]);
-
-    const newGame = game.map((item, i) => {
-      item.back = require(`./../assests/cardback.jpg`).default;
-      return item;
-    });
-    setGame(newGame);
-    setFinishedCardNum(0);
-
-    changeCardPlace();
-  };
 
   const changeCardPlace = () => {
     //1- genrate random numbers from 0 to 17
@@ -266,7 +143,7 @@ export default function MediumLevel() {
 
   const check = async (id) => {
     // id = i+1 ind
-    let backCard = require(`./../assests/cardback.jpg`).default;
+    let backCard = require(`./../newFronts/backCard.jpg`).default;
     let getIndexInOrginalCard = game[id - 1].gameId - 1;
     let check = orginalCard[getIndexInOrginalCard].isFinish;
 
@@ -368,21 +245,17 @@ export default function MediumLevel() {
     <div className="main">
       <div className="upperPage">
         <div className="btnsDiv">
-          <button className="backBtn">
-            <img
-              className="backIcon"
-              src="https://img.icons8.com/material-outlined/24/ffffff/circled-left--v1.png"
-            />
-          </button>
           <button
-            className="restartBtn"
+            className="backBtn"
             onClick={() => {
-              restartGame();
+              //clearInterval(timerFun);
+              navigate("/start");
             }}
           >
             <img
-              className="resIcon"
-              src="https://img.icons8.com/material-outlined/24/ffffff/restart--v1.png"
+              className="backIcon"
+              src="https://img.icons8.com/material-outlined/24/ffffff/circled-left--v1.png"
+              alt="card"
             />
           </button>
         </div>

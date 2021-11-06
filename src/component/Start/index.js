@@ -5,35 +5,37 @@ import { useNavigate } from "react-router-dom";
 export default function Start() {
   const navigate = useNavigate();
   return (
-    <div className="mainstart">
-      <div className="startup">
-        <h1 className="gamename"> Halloween </h1>
-        <h2 className="gamename2"> Match-Up </h2>
-        <div className=".choiceFP">
+    <div className="mainInMainPage">
+      <div className="choiceDiv">
+        <div className="mainPageHeads">
+          <h1 className="mainHead"> Choose </h1>
+          <h2 className="subHead">Game Level </h2>
+        </div>
+
+        <div className="mainPageBtns">
           <button
-            className="easy"
+            className="mainBtns"
             onClick={() => {
               navigate("/easyLevel");
             }}
           >
-            easy level
+            Easy level
           </button>
           <button
-            className="medium"
+            className="mainBtns"
             onClick={() => {
               navigate("/mediumLevel");
             }}
           >
-            medium level
+            Medium level
           </button>
           <button
-            className="high"
-            className="inst"
+            className="mainBtns"
             onClick={() => {
               navigate("/hardLevel");
             }}
           >
-            high level
+            Hard level
           </button>
         </div>
       </div>

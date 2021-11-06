@@ -7,25 +7,30 @@ export default function MainPage() {
 
   return (
     <div className="mainInMainPage">
-      <div className="choiceFP">
-        <h1 className="gamename3"> Halloween </h1>
-        <h2 className="gamename4"> Match-Up </h2>
-        <button
-          className="inst"
-          onClick={() => {
-            navigate("/instructions");
-          }}
-        >
-          Instructions
-        </button>
-        <button
-          className="start"
-          onClick={() => {
-            navigate("/start");
-          }}
-        >
-          Start Game
-        </button>
+      <div className="choiceDiv">
+        <div className="mainPageHeads">
+          <h1 className="mainHead"> Memory </h1>
+          <h2 className="subHead"> Match-Up </h2>
+        </div>
+        <div className="mainPageBtns">
+          <button
+            className="mainBtns"
+            onClick={() => {
+              navigate("/start");
+            }}
+          >
+            Start Game
+          </button>
+          <br />
+          <button
+            className="mainBtns"
+            onClick={() => {
+              navigate("/instructions");
+            }}
+          >
+            Instructions
+          </button>
+        </div>
       </div>
     </div>
   );
